@@ -35,8 +35,8 @@ class IPinfo::Adapter
     attr_reader :token
 
     def connection(adapter)
-        Faraday.new(url: "https://#{HOST}") do |f|
-            f.adapter(adapter)
+        Faraday.new(url: "https://#{HOST}") do |conn|
+            conn.adapter(adapter)
         end
     end
 

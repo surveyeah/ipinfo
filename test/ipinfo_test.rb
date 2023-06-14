@@ -115,52 +115,50 @@ class IPinfoTest < Minitest::Test
         assert_equal(resp.longitude, '-122.0775')
         assert_equal(resp.postal, '94043')
         assert_equal(resp.timezone, 'America/Los_Angeles')
-
-        # No more available without auth token
-        # assert_equal(
-        #     resp.asn,
-        #     {
-        #         "asn": 'AS15169',
-        #         "name": 'Google LLC',
-        #         "domain": 'google.com',
-        #         "route": '8.8.8.0/24',
-        #         "type": 'hosting'
-        #     }
-        # )
-        # assert_equal(
-        #     resp.company,
-        #     {
-        #         "name": 'Google LLC',
-        #         "domain": 'google.com',
-        #         "type": 'hosting'
-        #     }
-        # )
-        # assert_equal(
-        #     resp.privacy,
-        #     {
-        #         "vpn": false,
-        #         "proxy": false,
-        #         "tor": false,
-        #         "relay": false,
-        #         "hosting": true,
-        #         "service": ''
-        #     }
-        # )
-        # assert_equal(
-        #     resp.abuse,
-        #     {
-        #         "address": 'US, CA, Mountain View, ' \
-        #                    '1600 Amphitheatre Parkway, 94043',
-        #         "country": 'US',
-        #         "email": 'network-abuse@google.com',
-        #         "name": 'Abuse',
-        #         "network": '8.8.8.0/24',
-        #         "phone": '+1-650-253-0000'
-        #     }
-        # )
-        # assert_equal(resp.domains[:ip], TEST_IPV4)
-        # refute_nil(resp.domains[:total])
-        # refute_nil(resp.domains[:domains])
+        assert_equal(
+            resp.asn,
+            {
+                "asn": 'AS15169',
+                "name": 'Google LLC',
+                "domain": 'google.com',
+                "route": '8.8.8.0/24',
+                "type": 'hosting'
+            }
+        )
+        assert_equal(
+            resp.company,
+            {
+                "name": 'Google LLC',
+                "domain": 'google.com',
+                "type": 'hosting'
+            }
+        )
+        assert_equal(
+            resp.privacy,
+            {
+                "vpn": false,
+                "proxy": false,
+                "tor": false,
+                "relay": false,
+                "hosting": true,
+                "service": ''
+            }
+        )
+        assert_equal(
+            resp.abuse,
+            {
+                "address": 'US, CA, Mountain View, ' \
+                        '1600 Amphitheatre Parkway, 94043',
+                "country": 'US',
+                "email": 'network-abuse@google.com',
+                "name": 'Abuse',
+                "network": '8.8.8.0/24',
+                "phone": '+1-650-253-0000'
+            }
+        )
+        assert_equal(resp.domains[:ip], TEST_IPV4)
+        refute_nil(resp.domains[:total])
+        refute_nil(resp.domains[:domains])
     end
 
     def test_lookup_ip4
